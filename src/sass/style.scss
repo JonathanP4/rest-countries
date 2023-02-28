@@ -1,0 +1,110 @@
+@use 'resets';
+@use 'misc' as *;
+@use 'mixins' as mix;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+body {
+   font-family: 'Nunito Sans', sans-serif;
+   background: map-get($colors, 'very-light-gray')
+}
+
+.list--invisible {
+   transform: translateY(-50%) scaleY(0);
+   pointer-events: none;
+}
+
+.navbar {
+   @include mix.flex($justify: space-between);
+   background-color: map-get($colors, 'white');
+   padding: 2rem 1rem;
+   box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+
+   h1 {
+      font-size: 1.3rem;
+   }
+}
+
+.app {
+   padding: 2rem 1.3rem;
+}
+
+.search-bar {
+   @include mix.flex($justify: start);
+   background-color: map-get($colors, 'white');
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+   gap: 2rem;
+   padding: 1rem 2rem;
+
+   .fa-search {
+      color: rgb(180, 180, 180);
+   }
+
+   .search {
+      width: 80%;
+      font-size: .9rem;
+
+      &::placeholder {
+         color: rgb(200, 200, 200);
+      }
+   }
+}
+
+.region-selector-container {
+   background: map-get($colors, 'very-light-gray');
+   position: relative;
+   margin-top: 2.1rem;
+   width: 60%;
+   cursor: pointer;
+
+   div:nth-child(1) {
+      padding: .8rem 1.6rem;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      background: map-get($colors, 'white');
+      @include mix.flex($justify: space-between);
+   }
+
+   .regions__list {
+      position: absolute;
+      width: 100%;
+      transition: all .2s;
+      padding: .8rem 1.6rem;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      background: map-get($colors, 'white');
+      margin-top: .5rem;
+
+      li {
+         margin-top: 1rem
+      }
+   }
+}
+
+.countries {
+   @include mix.grid();
+   gap: 2.3rem;
+   margin-top: 2.3rem;
+
+   .country {
+      width: 314px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      border-radius: .6rem;
+      margin: 0 auto;
+
+      img {
+         object-fit: cover;
+         border-radius: .6rem .6rem 0 0;
+      }
+   }
+
+   .country__details {
+      background: map-get($colors, 'white');
+      padding: 1.3rem;
+      padding-bottom: 2.4rem;
+      border-radius: 0 0 .6rem .6rem;
+
+      h1 {
+         font-size: 1.4rem;
+         margin-bottom: 1rem;
+      }
+   }
+}
