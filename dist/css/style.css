@@ -195,8 +195,6 @@ body {
 }
 .countries .country {
   cursor: pointer;
-  width: 314px;
-  height: 419px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 0.6rem;
   margin: 0 auto;
@@ -209,7 +207,7 @@ body {
 }
 .countries .country__details {
   margin-top: -5px;
-  height: 230px;
+  height: 170px;
   background: hsl(0, 0%, 100%);
   padding: 0 1.3rem;
   padding-top: 1.3rem;
@@ -244,6 +242,13 @@ body.dark-mode #search-country {
   .countries {
     grid-template-columns: repeat(3, auto);
     gap: 4rem;
+  }
+  .country {
+    width: 314px;
+    height: 419px;
+  }
+  .country .country__details {
+    height: 230px;
   }
   .menus {
     width: 83%;
