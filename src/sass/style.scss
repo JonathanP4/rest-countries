@@ -42,7 +42,7 @@ body {
 }
 
 .app {
-   padding: 2rem 1.3rem;
+   padding: 2rem;
    transition: all .3s;
 }
 
@@ -102,26 +102,24 @@ body {
 
 .countries {
    @include mix.grid();
-   gap: 2.3rem;
+   gap: 3rem;
    margin-top: 2.3rem;
 
    .country {
+      width: 100%;
       cursor: pointer;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       border-radius: .6rem;
       margin: 0 auto;
 
-      img {
-         object-fit: cover;
-         width: 314px;
-         height: 188px;
+      .flag {
          border-radius: .6rem .6rem 0 0;
       }
    }
 
    .country__details {
-      margin-top: -5px;
-      height: 170px;
+      margin-top: -7px;
+      height: 190px;
       background: map-get($colors, 'white');
       padding: 0 1.3rem;
       padding-top: 1.3rem;
@@ -130,6 +128,7 @@ body {
       h1 {
          font-size: 1.4rem;
          margin-bottom: 1rem;
+         line-height: 1.6rem;
       }
    }
 }
@@ -152,62 +151,75 @@ body.dark-mode {
    }
 }
 
-@media (min-width: 1520px) {
-   .app {
-      width: 85%;
-      margin: 0 auto;
-   }
-
+@media (min-width: 820px) {
    .countries {
-      grid-template-columns: repeat(3, auto);
-      gap: 4rem;
-   }
+      @include mix.grid();
+      grid-template-columns: repeat(2, auto);
+      gap: 3.2rem;
 
-   .country {
-      width: 314px;
-      height: 419px;
+      .country {
+         width: 336px;
+         height: 414px;
 
-      .country__details {
-         height: 230px;
+         .flag {
+            width: 100%;
+            height: 225px;
+         }
       }
-   }
-
-
-
-   .menus {
-      width: 83%;
-      margin: 0 auto;
-      min-width: 1073px;
    }
 }
 
-@media (min-width: 1680px) {
-   :root {
-      font-size: 18px;
-   }
+@media (min-width: 1120px) {
+   .countries {
+      @include mix.grid();
+      grid-template-columns: repeat(3, auto);
 
+      .country {
+         width: 326px;
+         height: 404px;
+
+         .flag {
+            width: 341px;
+            height: 210px;
+         }
+      }
+   }
+}
+
+@media (min-width: 1230px) {
    .app {
-      width: 85%;
+      width: 95%;
       margin: 0 auto;
    }
 
    .menus {
       @include mix.flex($justify: space-between);
-      width: 99%;
 
       .region-selector-container {
-         width: 15%;
+         width: 180px;
          margin-top: 0;
       }
 
       .search-bar {
-         width: 35%
+         width: 430px;
       }
    }
 
    .countries {
       @include mix.grid();
       grid-template-columns: repeat(4, auto);
-      gap: 4rem;
+
+      .country {
+         width: 260px;
+
+         .flag-container {
+            border-radius: .6rem .6rem 0 0;
+         }
+
+         .flag {
+            width: auto;
+            height: 180px;
+         }
+      }
    }
 }

@@ -36,7 +36,9 @@ class App {
       jsonData.forEach(el => {
          const html =
             `<div class="country">
-               <img src="${el.flag}" alt="flag">
+               <div class="flag-container">
+                  <img class="flag" src="${el.flags.svg}" alt="flag_${el.name.split(' ').join('_')}">
+               </div>
                <div class="country__details">
                   <h1>${el.name}</h1>
                   <div class="population">
@@ -67,23 +69,25 @@ class App {
          .forEach(el => {
             const html =
                `<div class="country">
-               <img src="${el.flag}" alt="flag">
-               <div class="country__details">
-                  <h1>${el.name}</h1>
-                  <div class="population">
-                     <span class="text-bold">Population:</span>
-                     <span>${formatNum.format(el.population)}</span>
+                  <div class="flag-container">
+                     <img class="flag" src="${el.flags.svg}" alt="flag_${el.name.split(' ').join('_')}">
                   </div>
-                  <div class="region">
-                     <span class="text-bold">Region:</span>
-                     <span>${el.region}</span>
+                  <div class="country__details">
+                     <h1>${el.name}</h1>
+                     <div class="population">
+                        <span class="text-bold">Population:</span>
+                        <span>${formatNum.format(el.population)}</span>
+                     </div>
+                     <div class="region">
+                        <span class="text-bold">Region:</span>
+                        <span>${el.region}</span>
+                     </div>
+                     <div class="capital">
+                        <span class="text-bold">Capital:</span>
+                        <span>${el.capital}</span>
+                     </div>
                   </div>
-                  <div class="capital">
-                     <span class="text-bold">Capital:</span>
-                     <span>${el.capital}</span>
-                  </div>
-               </div>
-            </div>`;
+               </div>`;
             countriesContainer.insertAdjacentHTML('beforeend', html)
          })
    }
@@ -102,13 +106,15 @@ class App {
          .forEach(el => {
             const html =
                `<div class="country">
-               <img src="${el.flag}" class="flag" alt="flag-${el.name.toLowerCase()}">
-               <div class="country__details">
-                  <h1>${el.name}</h1>
-                  <div class="population">
-                     <span class="text-bold">Population:</span>
-                     <span>${formatNum.format(el.population)}</span>
+                  <div class="flag-container">
+                     <img class="flag" src="${el.flags.svg}" alt="flag_${el.name.split(' ').join('_')}">
                   </div>
+                  <div class="country__details">
+                     <h1>${el.name}</h1>
+                     <div class="population">
+                        <span class="text-bold">Population:</span>
+                        <span>${formatNum.format(el.population)}</span>
+                     </div>
                   <div class="region">
                      <span class="text-bold">Region:</span>
                      <span>${el.region}</span>

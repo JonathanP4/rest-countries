@@ -131,7 +131,7 @@ body {
 }
 
 .app {
-  padding: 2rem 1.3rem;
+  padding: 2rem;
   transition: all 0.3s;
 }
 
@@ -190,24 +190,22 @@ body {
   display: grid;
   justify-content: center;
   align-items: center;
-  gap: 2.3rem;
+  gap: 3rem;
   margin-top: 2.3rem;
 }
 .countries .country {
+  width: 100%;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 0.6rem;
   margin: 0 auto;
 }
-.countries .country img {
-  object-fit: cover;
-  width: 314px;
-  height: 188px;
+.countries .country .flag {
   border-radius: 0.6rem 0.6rem 0 0;
 }
 .countries .country__details {
-  margin-top: -5px;
-  height: 170px;
+  margin-top: -7px;
+  height: 190px;
   background: hsl(0, 0%, 100%);
   padding: 0 1.3rem;
   padding-top: 1.3rem;
@@ -216,6 +214,7 @@ body {
 .countries .country__details h1 {
   font-size: 1.4rem;
   margin-bottom: 1rem;
+  line-height: 1.6rem;
 }
 
 body.dark-mode {
@@ -234,54 +233,70 @@ body.dark-mode #search-country {
   color: hsl(0, 0%, 100%);
 }
 
-@media (min-width: 1520px) {
-  .app {
-    width: 85%;
-    margin: 0 auto;
-  }
+@media (min-width: 820px) {
   .countries {
-    grid-template-columns: repeat(3, auto);
-    gap: 4rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, auto);
+    gap: 3.2rem;
   }
-  .country {
-    width: 314px;
-    height: 419px;
+  .countries .country {
+    width: 336px;
+    height: 414px;
   }
-  .country .country__details {
-    height: 230px;
-  }
-  .menus {
-    width: 83%;
-    margin: 0 auto;
-    min-width: 1073px;
+  .countries .country .flag {
+    width: 100%;
+    height: 225px;
   }
 }
-@media (min-width: 1680px) {
-  :root {
-    font-size: 18px;
+@media (min-width: 1120px) {
+  .countries {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
   }
+  .countries .country {
+    width: 326px;
+    height: 404px;
+  }
+  .countries .country .flag {
+    width: 341px;
+    height: 210px;
+  }
+}
+@media (min-width: 1230px) {
   .app {
-    width: 85%;
+    width: 95%;
     margin: 0 auto;
   }
   .menus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 99%;
   }
   .menus .region-selector-container {
-    width: 15%;
+    width: 180px;
     margin-top: 0;
   }
   .menus .search-bar {
-    width: 35%;
+    width: 430px;
   }
   .countries {
     display: grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(4, auto);
-    gap: 4rem;
+  }
+  .countries .country {
+    width: 260px;
+  }
+  .countries .country .flag-container {
+    border-radius: 0.6rem 0.6rem 0 0;
+  }
+  .countries .country .flag {
+    width: auto;
+    height: 180px;
   }
 }
