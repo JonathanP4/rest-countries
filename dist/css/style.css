@@ -194,7 +194,6 @@ body {
   margin-top: 2.3rem;
 }
 .countries .country {
-  width: 100%;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 0.6rem;
@@ -233,7 +232,7 @@ body.dark-mode #search-country {
   color: hsl(0, 0%, 100%);
 }
 
-@media (min-width: 820px) {
+@media (min-width: 790px) {
   .countries {
     display: grid;
     justify-content: center;
@@ -242,15 +241,14 @@ body.dark-mode #search-country {
     gap: 3.2rem;
   }
   .countries .country {
-    width: 336px;
-    height: 414px;
+    width: 283px;
   }
-  .countries .country .flag {
+  .countries .flag {
     width: 100%;
-    height: 225px;
+    height: 190px;
   }
 }
-@media (min-width: 1120px) {
+@media (min-width: 1030px) {
   .countries {
     display: grid;
     justify-content: center;
@@ -258,12 +256,11 @@ body.dark-mode #search-country {
     grid-template-columns: repeat(3, auto);
   }
   .countries .country {
-    width: 326px;
-    height: 404px;
+    width: 293px;
   }
-  .countries .country .flag {
-    width: 341px;
-    height: 210px;
+  .countries .flag {
+    width: 100%;
+    height: 200px;
   }
 }
 @media (min-width: 1230px) {
@@ -290,13 +287,10 @@ body.dark-mode #search-country {
     grid-template-columns: repeat(4, auto);
   }
   .countries .country {
-    width: 260px;
+    width: 253px;
   }
-  .countries .country .flag-container {
-    border-radius: 0.6rem 0.6rem 0 0;
-  }
-  .countries .country .flag {
-    width: auto;
-    height: 180px;
+  .countries .flag {
+    width: 100%;
+    height: 160px;
   }
 }

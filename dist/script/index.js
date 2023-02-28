@@ -37,7 +37,7 @@ class App {
          const html =
             `<div class="country">
                <div class="flag-container">
-                  <img class="flag" src="${el.flags.svg}" alt="flag_${el.name.split(' ').join('_')}">
+                  <img class="flag" src="${el.flags.png}" alt="flag_${el.name.split(' ').join('_')}">
                </div>
                <div class="country__details">
                   <h1>${el.name}</h1>
@@ -70,7 +70,7 @@ class App {
             const html =
                `<div class="country">
                   <div class="flag-container">
-                     <img class="flag" src="${el.flags.svg}" alt="flag_${el.name.split(' ').join('_')}">
+                     <img class="flag" src="${el.flags.png}" alt="flag_${el.name.split(' ').join('_')}">
                   </div>
                   <div class="country__details">
                      <h1>${el.name}</h1>
@@ -107,7 +107,7 @@ class App {
             const html =
                `<div class="country">
                   <div class="flag-container">
-                     <img class="flag" src="${el.flags.svg}" alt="flag_${el.name.split(' ').join('_')}">
+                     <img class="flag" src="${el.flags.png}" alt="flag_${el.name.split(' ').join('_')}">
                   </div>
                   <div class="country__details">
                      <h1>${el.name}</h1>

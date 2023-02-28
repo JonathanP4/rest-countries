@@ -106,7 +106,6 @@ body {
    margin-top: 2.3rem;
 
    .country {
-      width: 100%;
       cursor: pointer;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       border-radius: .6rem;
@@ -151,37 +150,35 @@ body.dark-mode {
    }
 }
 
-@media (min-width: 820px) {
+@media (min-width: 790px) {
    .countries {
       @include mix.grid();
       grid-template-columns: repeat(2, auto);
       gap: 3.2rem;
 
       .country {
-         width: 336px;
-         height: 414px;
+         width: 283px
+      }
 
-         .flag {
-            width: 100%;
-            height: 225px;
-         }
+      .flag {
+         width: 100%;
+         height: 190px;
       }
    }
 }
 
-@media (min-width: 1120px) {
+@media (min-width: 1030px) {
    .countries {
       @include mix.grid();
       grid-template-columns: repeat(3, auto);
 
       .country {
-         width: 326px;
-         height: 404px;
+         width: 293px
+      }
 
-         .flag {
-            width: 341px;
-            height: 210px;
-         }
+      .flag {
+         width: 100%;
+         height: 200px;
       }
    }
 }
@@ -210,16 +207,12 @@ body.dark-mode {
       grid-template-columns: repeat(4, auto);
 
       .country {
-         width: 260px;
+         width: 253px
+      }
 
-         .flag-container {
-            border-radius: .6rem .6rem 0 0;
-         }
-
-         .flag {
-            width: auto;
-            height: 180px;
-         }
+      .flag {
+         width: 100%;
+         height: 160px;
       }
    }
 }
