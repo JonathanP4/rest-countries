@@ -33,12 +33,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./rest-countries-api-with-color-theme-switcher-master/design/mobile-design-light-screenshot.jpg)
+![](rest-countries-api-with-color-theme-switcher-master/design/mobile-design-light-screenshot.png)
 
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://rest-countries-ivory.vercel.app/)
 
 ## My process
 
