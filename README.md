@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./rest-countries-api-with-color-theme-switcher-master/design/mobile-design-home-dark.jpg)
+![](./rest-countries-api-with-color-theme-switcher-master/design/mobile-design-light-screenshot.jpg)
 
 ### Links
 
