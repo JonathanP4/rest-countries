@@ -15,28 +15,31 @@
    <main class="wrapper">
       <nav class="navbar">
          <h1>Where in the world?</h1>
-         <div>
-            <i class="fa-regular fa-moon"></i>
+         <div class="theme-switcher-container">
+            <i class="fa-regular fa-moon theme-icon"></i>
+            <i class="fa-regular fa-sun theme-icon invisible"></i>
             <span id="theme_text" class="text-medium">Dark Mode</span>
          </div>
       </nav>
       <div class="app">
-         <div class="search-bar">
-            <i class="fa fa-search"></i>
-            <input type="text" class="search" placeholder="Search for a country..."></input>
-         </div>
-         <div class="region-selector-container">
-            <div name="" class="region__selector">
-               <span>Filter by Region</span>
-               <i class="fa fa-angle-down"></i>
+         <div class="menus">
+            <div class="search-bar">
+               <i class="fa fa-search"></i>
+               <input id="search-country" type="text" class="search" placeholder="Search for a country..."></input>
             </div>
-            <ul class="regions__list list--invisible">
-               <li class="region">Africa</li>
-               <li class="region">Americas</li>
-               <li class="region">Asia</li>
-               <li class="region">Europe</li>
-               <li class="region">Oceania</li>
-            </ul>
+            <div class="region-selector-container">
+               <div name="" class="region__selector">
+                  <span class="filter-text">Filter by Region</span>
+                  <i class="fa fa-angle-down"></i>
+               </div>
+               <ul class="regions__list list--invisible">
+                  <li class="region">Africa</li>
+                  <li class="region">Americas</li>
+                  <li class="region">Asia</li>
+                  <li class="region">Europe</li>
+                  <li class="region">Oceania</li>
+               </ul>
+            </div>
          </div>
          <div class="countries">
             <!-- <div class="country">

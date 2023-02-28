@@ -6,12 +6,16 @@
 
 body {
    font-family: 'Nunito Sans', sans-serif;
-   background: map-get($colors, 'very-light-gray')
+   background: map-get($colors, 'very-light-gray');
 }
 
 .list--invisible {
    transform: translateY(-50%) scaleY(0);
    pointer-events: none;
+}
+
+.invisible {
+   opacity: 0 !important;
 }
 
 .navbar {
@@ -20,6 +24,18 @@ body {
    padding: 2rem 1rem;
    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
 
+   .theme-switcher-container {
+      cursor: pointer;
+      position: relative;
+      transition: all .3s;
+
+      .theme-icon {
+         left: -25px;
+         top: 3px;
+         position: absolute;
+      }
+   }
+
    h1 {
       font-size: 1.3rem;
    }
@@ -27,6 +43,7 @@ body {
 
 .app {
    padding: 2rem 1.3rem;
+   transition: all .3s;
 }
 
 .search-bar {
@@ -57,24 +74,28 @@ body {
    width: 60%;
    cursor: pointer;
 
-   div:nth-child(1) {
+   .region__selector {
       padding: .8rem 1.6rem;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       background: map-get($colors, 'white');
       @include mix.flex($justify: space-between);
+
+      .fa-angle-down:before {
+         vertical-align: -3px;
+      }
    }
 
    .regions__list {
       position: absolute;
       width: 100%;
+      padding: 1rem 0;
       transition: all .2s;
-      padding: .8rem 1.6rem;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       background: map-get($colors, 'white');
       margin-top: .5rem;
 
       li {
-         margin-top: 1rem
+         padding: .4rem 1.6rem;
       }
    }
 }
@@ -85,26 +106,99 @@ body {
    margin-top: 2.3rem;
 
    .country {
+      cursor: pointer;
       width: 314px;
+      height: 419px;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       border-radius: .6rem;
       margin: 0 auto;
 
       img {
          object-fit: cover;
+         width: 314px;
+         height: 188px;
          border-radius: .6rem .6rem 0 0;
       }
    }
 
    .country__details {
+      margin-top: -5px;
+      height: 230px;
       background: map-get($colors, 'white');
-      padding: 1.3rem;
-      padding-bottom: 2.4rem;
+      padding: 0 1.3rem;
+      padding-top: 1.3rem;
       border-radius: 0 0 .6rem .6rem;
 
       h1 {
          font-size: 1.4rem;
          margin-bottom: 1rem;
       }
+   }
+}
+
+body.dark-mode {
+   color: map-get($colors, 'white');
+   background: map-get($colors, 'very-dark-blue-bg');
+
+   .navbar,
+   .country__details,
+   .region-selector-container>div,
+   .region-selector-container>ul,
+   .search-bar,
+   .search-bar>input {
+      background-color: map-get($colors, 'dark-blue');
+   }
+
+   #search-country {
+      color: map-get($colors, 'white');
+   }
+}
+
+@media (min-width: 1520px) {
+   .app {
+      width: 85%;
+      margin: 0 auto;
+   }
+
+   .countries {
+      grid-template-columns: repeat(3, auto);
+      gap: 4rem;
+   }
+
+   .menus {
+      width: 83%;
+      margin: 0 auto;
+      min-width: 1073px;
+   }
+}
+
+@media (min-width: 1680px) {
+   :root {
+      font-size: 18px;
+   }
+
+   .app {
+      width: 85%;
+      margin: 0 auto;
+   }
+
+   .menus {
+      @include mix.flex($justify: space-between);
+      width: 99%;
+
+      .region-selector-container {
+         width: 15%;
+         margin-top: 0;
+      }
+
+      .search-bar {
+         width: 35%
+      }
+   }
+
+   .countries {
+      @include mix.grid();
+      grid-template-columns: repeat(4, auto);
+      gap: 4rem;
    }
 }
