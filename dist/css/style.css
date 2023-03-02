@@ -97,6 +97,7 @@ ul {
 body {
   font-family: "Nunito Sans", sans-serif;
   background: hsl(0, 0%, 98%);
+  min-height: 100vh;
 }
 
 .list--invisible {
@@ -133,6 +134,7 @@ body {
 .app {
   padding: 2rem;
   transition: all 0.3s;
+  max-width: 1274px;
 }
 
 .search-bar {
@@ -192,6 +194,7 @@ body {
   align-items: center;
   gap: 3rem;
   margin-top: 2.3rem;
+  max-width: 1274px;
 }
 .countries .country {
   cursor: pointer;
@@ -201,6 +204,7 @@ body {
 }
 .countries .country .flag {
   border-radius: 0.6rem 0.6rem 0 0;
+  width: 100%;
 }
 .countries .country__details {
   margin-top: -7px;
@@ -253,6 +257,7 @@ body.dark-mode #search-country {
     display: grid;
     justify-content: center;
     align-items: center;
+    min-width: 986px;
     grid-template-columns: repeat(3, auto);
   }
   .countries .country {
@@ -265,7 +270,7 @@ body.dark-mode #search-country {
 }
 @media (min-width: 1230px) {
   .app {
-    width: 95%;
+    padding: 2rem 4rem;
     margin: 0 auto;
   }
   .menus {
@@ -287,10 +292,10 @@ body.dark-mode #search-country {
     grid-template-columns: repeat(4, auto);
   }
   .countries .country {
-    width: 253px;
+    width: 246px;
   }
   .countries .flag {
-    width: 100%;
-    height: 160px;
+    width: 246px;
+    height: 153.39px;
   }
 }

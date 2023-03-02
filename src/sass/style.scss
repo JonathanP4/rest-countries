@@ -7,6 +7,7 @@
 body {
    font-family: 'Nunito Sans', sans-serif;
    background: map-get($colors, 'very-light-gray');
+   min-height: 100vh;
 }
 
 .list--invisible {
@@ -44,6 +45,7 @@ body {
 .app {
    padding: 2rem;
    transition: all .3s;
+   max-width: 1274px;
 }
 
 .search-bar {
@@ -104,6 +106,7 @@ body {
    @include mix.grid();
    gap: 3rem;
    margin-top: 2.3rem;
+   max-width: 1274px;
 
    .country {
       cursor: pointer;
@@ -113,6 +116,7 @@ body {
 
       .flag {
          border-radius: .6rem .6rem 0 0;
+         width: 100%;
       }
    }
 
@@ -170,6 +174,7 @@ body.dark-mode {
 @media (min-width: 1030px) {
    .countries {
       @include mix.grid();
+      min-width: 986px;
       grid-template-columns: repeat(3, auto);
 
       .country {
@@ -185,7 +190,7 @@ body.dark-mode {
 
 @media (min-width: 1230px) {
    .app {
-      width: 95%;
+      padding: 2rem 4rem;
       margin: 0 auto;
    }
 
@@ -207,12 +212,12 @@ body.dark-mode {
       grid-template-columns: repeat(4, auto);
 
       .country {
-         width: 253px
+         width: 246px;
       }
 
       .flag {
-         width: 100%;
-         height: 160px;
+         width: 246px;
+         height: 153.39px;
       }
    }
 }

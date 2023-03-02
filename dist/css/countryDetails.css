@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+*,
+*::before,
+*::after {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   -webkit-tap-highlight-color: transparent;
+}
+
+img,
+svg,
+i {
+   max-width: 100%;
+}
+
+button {
+   display: inline-block;
+}
+
+button,
+input {
+   border: 0;
+   outline: 0;
+}
+
+a {
+   color: inherit;
+   text-decoration: none;
+}
+
+.text-dark-blue {
+   color: hsl(209, 23%, 22%);
+}
+
+.bg-dark-blue {
+   background-color: hsl(209, 23%, 22%);
+}
+
+.text-very-dark-blue-bg {
+   color: hsl(207, 26%, 17%);
+}
+
+.bg-very-dark-blue-bg {
+   background-color: hsl(207, 26%, 17%);
+}
+
+.text-very-dark-blue-text {
+   color: hsl(200, 15%, 8%);
+}
+
+.bg-very-dark-blue-text {
+   background-color: hsl(200, 15%, 8%);
+}
+
+.text-dark-gray {
+   color: hsl(0, 0%, 52%);
+}
+
+.bg-dark-gray {
+   background-color: hsl(0, 0%, 52%);
+}
+
+.text-very-light-gray {
+   color: hsl(0, 0%, 98%);
+}
+
+.bg-very-light-gray {
+   background-color: hsl(0, 0%, 98%);
+}
+
+.text-white {
+   color: hsl(0, 0%, 100%);
+}
+
+.bg-white {
+   background-color: hsl(0, 0%, 100%);
+}
+
+.text-thin {
+   font-weight: 300;
+}
+
+.text-medium {
+   font-weight: 600;
+}
+
+.text-bold {
+   font-weight: 800;
+}
+
+body {
+   font-family: "Nunito Sans", sans-serif;
+   background: hsl(0, 0%, 98%);
+}
+
+.invisible {
+   opacity: 0 !important;
+}
+
+body.dark-mode {
+   color: hsl(0, 0%, 100%);
+   background: hsl(207, 26%, 17%);
+}
+
+body.dark-mode .navbar,
+body.dark-mode .back-btn,
+body.dark-mode .borders .border {
+   background-color: hsl(209, 23%, 22%);
+}
+
+body.dark-mode .back-btn,
+body.dark-mode .borders .border {
+   color: hsl(0, 0%, 100%);
+}
+
+.app {
+   display: grid;
+   justify-content: center;
+   margin: 2rem 0;
+}
+
+.flag-container {
+   margin: 2rem auto;
+   text-align: center;
+}
+
+.flag-container img {
+   box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.3);
+}
+
+.navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: hsl(0, 0%, 100%);
+   padding: 2rem 1rem;
+   box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .theme-switcher-container {
+   cursor: pointer;
+   position: relative;
+   transition: all 0.3s;
+}
+
+.navbar .theme-switcher-container .theme-icon {
+   left: -25px;
+   top: 3px;
+   position: absolute;
+}
+
+.navbar h1 {
+   font-size: 1.3rem;
+}
+
+.back-btn {
+   background-color: hsl(0, 0%, 100%);
+   box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.3);
+   color: hsl(200, 15%, 8%);
+   display: flex;
+   gap: .5rem;
+   font-size: 1.1rem;
+   width: fit-content;
+   align-items: center;
+   padding: .5rem 1.4rem;
+}
+
+.country__details {
+   display: grid;
+   gap: .8rem;
+}
+
+.country__details h1 {
+   font-size: 1.8rem;
+   margin-bottom: 1rem;
+   line-height: 1.6rem;
+}
+
+.country__details .top-level-domain {
+   margin-top: 2rem;
+}
+
+.border__countries {
+   margin-top: 2rem;
+   display: grid;
+   gap: 10px;
+}
+
+.border__countries h1 {
+   font-size: 1.3rem;
+}
+
+.border__countries .borders {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.borders .border {
+   background-color: hsl(0, 0%, 100%);
+   color: hsl(200, 15%, 8%);
+   box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.3);
+   padding: .5rem 0;
+   border-radius: .3rem;
+   text-align: center;
+   font-size: .9rem;
+   width: 100px;
+}
