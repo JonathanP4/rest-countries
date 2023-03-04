@@ -26,65 +26,71 @@ class App {
    }
    renderCountry(country) {
       let html = `
-            <div class="flag-container">
-               <img src="${country.flags.png}" alt="">
-            </div>
             <div class="country__details">
-               <h1>${country.name}</h1>
-               <div class="native-name">
-                  <span class="text-bold">Native Name:</span>
-                  <span>${country.nativeName}</span>
+               <div class="flag-container">
+                  <img src="${country.flags.svg}" alt="">
                </div>
-               <div class="population">
-                  <span class="text-bold">Population:</span>
-                  <span>${formatNum.format(country.population)}</span>
-               </div>
-               <div class="region">
-                  <span class="text-bold">Region:</span>
-                  <span>${country.region}</span>
-               </div>
-               <div class="sub-region">
-                  <span class="text-bold">Sub Region:</span>
-                  <span>${country.subregion}</span>
-               </div>
-               <div class="capital">
-                  <span class="text-bold">Capital:</span>
-                  <span>${country.capital}</span>
-               </div>
-               <div class="top-level-domain">
-                  <span class="text-bold">Top Level Domain:</span>
-                  <span>${country.topLevelDomain}</span>
-               </div>
-               <div class="currencies">
-                  <span class="text-bold">Currencies:</span>
-                  <span>${country.currencies[0].name}</span>
-               </div>
-               <div class="languages">
-                  <span class="text-bold">Languages:</span>
-                  <span>${country.languages[0].name}</span>
+               <div class="sections">
+                  <div class="section section1">
+                     <h1>${country.name}</h1>
+                     <div class="native-name">
+                        <span class="text-medium">Native Name:</span>
+                        <span>${country.nativeName}</span>
+                     </div>
+                     <div class="population">
+                        <span class="text-medium">Population:</span>
+                        <span>${formatNum.format(country.population)}</span>
+                     </div>
+                     <div class="region">
+                        <span class="text-medium">Region:</span>
+                        <span>${country.region}</span>
+                     </div>
+                     <div class="sub-region">
+                        <span class="text-medium">Sub Region:</span>
+                        <span>${country.subregion}</span>
+                     </div>
+                     <div class="capital">
+                        <span class="text-medium">Capital:</span>
+                        <span>${country.capital}</span>
+                     </div>
+                  </div>
+                  <div class="section section2">
+                     <div class="top-level-domain">
+                        <span class="text-medium">Top Level Domain:</span>
+                        <span>${country.topLevelDomain}</span>
+                     </div>
+                     <div class="currencies">
+                        <span class="text-medium">Currencies:</span>
+                        <span>${country.currencies[0].name}</span>
+                     </div>
+                     <div class="languages">
+                        <span class="text-medium">Languages:</span>
+                        <span>${country.languages[0].name}</span>
+                     </div>
+                  </div>
                </div>
             </div>`;
-      if (country.borders) {
-         html +=
-            `<div class="border__countries">
-            <h1>Border Countries:</h1>
-            <div class="borders">
-            </div>
-         </div>`;
-      };
       countryData.insertAdjacentHTML('beforeend', html)
-      if (country.borders) {
-         const bordersContainer = document.querySelector('.borders')
-         country.borders.forEach((_, i) => {
-            if (i < 3)
-               bordersContainer.insertAdjacentHTML('beforeend',
-                  `<div class="border">${this.borderName(country.borders[i])}</div>`
-               )
-         })
-         bordersContainer.addEventListener('click', (e) => {
-            if (e.target.classList.contains('border')) this.renderBorder(e)
-         })
-      }
+      if (country.borders) this.insertBorder(country)
+   }
+   insertBorder(country) {
+      const sections = document.querySelector('.sections')
+      sections.insertAdjacentHTML('beforeend',
+         `<div class="border__countries">
+            <h1>Border Countries:</h1>
+            <div class="borders"></div>
+         </div>`
+      );
+      const bordersContainer = document.querySelector('.borders')
+      country.borders.forEach((_, i) => {
+         if (i < 3)
+            bordersContainer.insertAdjacentHTML('beforeend',
+               `<div class="border">${this.borderName(country.borders[i])}</div>`
+            )
+      })
+      bordersContainer.addEventListener('click', (e) => {
+         if (e.target.classList.contains('border')) this.renderBorder(e)
+      })
    }
    borderName(border) {
       const [matches] = jsonData.filter(el => el.alpha3Code === border)

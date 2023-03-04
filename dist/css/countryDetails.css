@@ -118,7 +118,7 @@ body.dark-mode .borders .border {
 .app {
    display: grid;
    justify-content: center;
-   padding: 2rem 0;
+   padding: 2rem;
 }
 
 .flag-container {
@@ -168,18 +168,14 @@ body.dark-mode .borders .border {
    padding: .5rem 1.4rem;
 }
 
-.country__details {
-   display: grid;
-   gap: .8rem;
-}
-
 .country__details h1 {
    font-size: 1.8rem;
    margin-bottom: 1rem;
-   line-height: 1.6rem;
 }
 
-.country__details .top-level-domain {
+.country__details .section {
+   display: grid;
+   gap: .5rem;
    margin-top: 2rem;
 }
 
@@ -210,4 +206,79 @@ body.dark-mode .borders .border {
    text-align: center;
    font-size: .9rem;
    width: 100px;
+}
+
+@media (min-width: 1349px) {
+   .app {
+      justify-content: unset;
+      margin: 2rem 3rem;
+   }
+
+   .country-data {
+      margin-top: 5rem;
+   }
+
+   .country__details {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   .flag-container {
+      margin: 0;
+      align-self: stretch;
+      width: 40%;
+   }
+
+   .flag-container img {
+      height: 100%;
+      width: auto;
+   }
+
+   .sections {
+      width: 50%;
+      display: grid;
+      grid-template-areas:
+         "s1 s2"
+         "bc bc";
+   }
+
+   .country__details .section {
+      display: grid;
+      gap: .5rem;
+      margin-top: 0;
+   }
+
+   .section1 {
+      grid-area: s1;
+   }
+
+   .section2 {
+      align-self: center;
+      grid-area: s2;
+   }
+
+   .border__countries {
+      grid-area: bc;
+   }
+
+   .border__countries h1 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0;
+   }
+
+   .border__countries {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+   }
+
+   .borders .border {
+      padding: .2rem 0;
+      text-align: center;
+      font-size: 1rem;
+      width: 105px;
+   }
 }
