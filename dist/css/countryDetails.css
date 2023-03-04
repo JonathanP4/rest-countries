@@ -118,7 +118,7 @@ body.dark-mode .borders .border {
 .app {
    display: grid;
    justify-content: center;
-   margin: 2rem 0;
+   padding: 2rem 0;
 }
 
 .flag-container {
@@ -156,6 +156,7 @@ body.dark-mode .borders .border {
 }
 
 .back-btn {
+   cursor: pointer;
    background-color: hsl(0, 0%, 100%);
    box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.3);
    color: hsl(200, 15%, 8%);
@@ -194,11 +195,13 @@ body.dark-mode .borders .border {
 
 .border__countries .borders {
    display: flex;
-   justify-content: space-between;
+   justify-content: center;
    align-items: center;
 }
 
 .borders .border {
+   cursor: pointer;
+   margin-right: 1rem;
    background-color: hsl(0, 0%, 100%);
    color: hsl(200, 15%, 8%);
    box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.3);

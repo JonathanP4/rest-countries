@@ -26,7 +26,7 @@ class App {
    }
    renderCountry(country) {
       let html = `
-      <div class="flag-container">
+            <div class="flag-container">
                <img src="${country.flags.png}" alt="">
             </div>
             <div class="country__details">
@@ -62,19 +62,39 @@ class App {
                <div class="languages">
                   <span class="text-bold">Languages:</span>
                   <span>${country.languages[0].name}</span>
-               </div>`;
+               </div>
+            </div>`;
       if (country.borders) {
          html +=
             `<div class="border__countries">
             <h1>Border Countries:</h1>
             <div class="borders">
-               <div class="border">${country.borders[0]}</div>
-               <div class="border">${country.borders[1]}</div>
-               <div class="border">${country.borders[2]}</div>
             </div>
          </div>`;
       };
       countryData.insertAdjacentHTML('beforeend', html)
+      if (country.borders) {
+         const bordersContainer = document.querySelector('.borders')
+         country.borders.forEach((_, i) => {
+            if (i < 3)
+               bordersContainer.insertAdjacentHTML('beforeend',
+                  `<div class="border">${this.borderName(country.borders[i])}</div>`
+               )
+         })
+         bordersContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('border')) this.renderBorder(e)
+         })
+      }
+   }
+   borderName(border) {
+      const [matches] = jsonData.filter(el => el.alpha3Code === border)
+      return matches.name.replace(/\(.*/gi, '');
+   }
+   renderBorder(e) {
+      const neighbourName = e.target.textContent
+      const [neighbour] = jsonData.filter(el => el.name.match(neighbourName))
+      countryData.innerHTML = ''
+      this.renderCountry(neighbour)
    }
    switchTheme() {
       document.body.classList.toggle('dark-mode')
