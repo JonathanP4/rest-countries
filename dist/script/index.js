@@ -21,9 +21,9 @@ const matched = window.matchMedia('(prefers-color-scheme: dark)').matches
 class App {
    constructor() {
       if (matched) this.switchTheme()
-      window.addEventListener('load', this.renderCountries)
-      search.addEventListener('keyup', this.sortBySearch)
-      search.addEventListener('keydown', this.countriesL)
+      window.addEventListener('load', this.renderCountries(jsonData))
+      search.addEventListener('keyup', () => this.sortBySearch())
+      search.addEventListener('keydown', () => this.countriesL())
       countriesContainer.addEventListener('click', (e) => this.setSessionStorage(e))
       themeSwitcher.addEventListener('click', this.switchTheme)
       regionList.addEventListener('click', (e) => {
@@ -34,8 +34,8 @@ class App {
          }
       })
    }
-   renderCountries() {
-      jsonData.forEach(el => {
+   renderCountries(countries) {
+      countries.forEach(el => {
          const html =
             `<div class="country" data-country="${el.name}">
                <a href="countryDetails.html">
@@ -69,72 +69,26 @@ class App {
       const countries = document.querySelectorAll('.country')
       countries.forEach(el => el.remove())
 
-      jsonData.filter(el => el.region === region)
-         .forEach(el => {
-            const html =
-               `<div class="country" data-country="${el.name}">
-                  <a href="countryDetails.html">
-                     <div class="flag-container">
-                        <img class="flag" src="${el.flags.png}" alt="flag_${el.name.split(' ').join('_')}">
-                     </div>
-                     <div class="country__details">
-                        <h1>${el.name}</h1>
-                        <div class="population">
-                           <span class="text-bold">Population:</span>
-                           <span>${formatNum.format(el.population)}</span>
-                        </div>
-                        <div class="region">
-                           <span class="text-bold">Region:</span>
-                           <span>${el.region}</span>
-                        </div>
-                        <div class="capital">
-                           <span class="text-bold">Capital:</span>
-                           <span>${el.capital}</span>
-                        </div>
-                     </div>
-                  </a>
-               </div>`;
-            countriesContainer.insertAdjacentHTML('beforeend', html)
-         })
+      const filteredRegion = jsonData.filter(el => el.region === region)
+      this.renderCountries(filteredRegion)
+      search.value = ''
+      this.countriesL
    }
    sortBySearch() {
       //Format search bar text
       const lowerCase = search.value.toLowerCase()
       const name = lowerCase.slice(0, 1).toUpperCase() + lowerCase.slice(1)
 
-      if (name === '') this.renderCountries
+      if (search.value === '') this.renderCountries(jsonData)
 
       regionText.textContent = 'Filter by Region'
 
       const countries = document.querySelectorAll('.country')
       countries.forEach(el => el.remove())
-      jsonData.filter(el => el.name.match(name))
-         .forEach(el => {
-            const html =
-               `<div class="country" data-country="${el.name}">
-            <a href="countryDetails.html">
-               <div class="flag-container">
-                  <img class="flag" src="${el.flags.png}" alt="flag_${el.name.split(' ').join('_')}">
-               </div>
-               <div class="country__details">
-                  <h1>${el.name}</h1>
-                  <div class="population">
-                     <span class="text-bold">Population:</span>
-                     <span>${formatNum.format(el.population)}</span>
-                  </div>
-                  <div class="region">
-                     <span class="text-bold">Region:</span>
-                     <span>${el.region}</span>
-                  </div>
-                  <div class="capital">
-                     <span class="text-bold">Capital:</span>
-                     <span>${el.capital}</span>
-                  </div>
-               </div>
-            </a>
-         </div>`;
-            countriesContainer.insertAdjacentHTML('beforeend', html)
-         })
+      const filteredSearch = jsonData.filter(el => el.name.match(name))
+      console.log(filteredSearch);
+
+      this.renderCountries(filteredSearch)
    }
    countriesL() {
       if (window.innerWidth >= 1230)

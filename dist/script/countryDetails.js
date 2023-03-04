@@ -25,6 +25,7 @@ class App {
       })
    }
    renderCountry(country) {
+      document.title = `Rest Countries - ${country.name}`
       let html = `
             <div class="country__details">
                <div class="flag-container">

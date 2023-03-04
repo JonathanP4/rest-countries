@@ -93,6 +93,7 @@ a {
 body {
    font-family: "Nunito Sans", sans-serif;
    background: hsl(0, 0%, 98%);
+   transition: all .3s;
 }
 
 .invisible {
@@ -205,7 +206,10 @@ body.dark-mode .borders .border {
    border-radius: .3rem;
    text-align: center;
    font-size: .9rem;
-   width: 100px;
+   width: 105px;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
 }
 
 @media (min-width: 1349px) {
