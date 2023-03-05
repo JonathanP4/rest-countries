@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://rest-countries-ivory.vercel.app/)
+- Solution URL: [Frontendmentor](https://www.frontendmentor.io/solutions/rest-countries-using-fetch-sass-C6u_RYQOEC)
+- Live Site URL: [Rest Countries](https://rest-countries-ivory.vercel.app/)
 
 ## My process
 
