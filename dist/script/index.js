@@ -110,4 +110,3 @@ class App {
    }
 }
 const app = new App()
-//# sourceMappingURL=index.js.map

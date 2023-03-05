@@ -6,15 +6,14 @@ const terser = require('gulp-terser')
 const postcss = require('gulp-postcss')
 
 function sassTask() {
-   return src('./src/sass/**/*.scss', { sourcemaps: true })
+   return src('./src/sass/**/*.scss')
       .pipe(sass())
       .pipe(postcss())
-      .pipe(cssnano())
-      .pipe(dest('./dist/css', { sourcemaps: '.' }))
+      .pipe(dest('./dist/css'))
 }
 function jsTask() {
-   return src('./src/script/**/*.js', { sourcemaps: true })
-      .pipe(dest('./dist/script', { sourcemaps: '.' }))
+   return src('./src/script/**/*.js')
+      .pipe(dest('./dist/script'))
 }
 function browserSyncStart(fn) {
    browserSync.init({
