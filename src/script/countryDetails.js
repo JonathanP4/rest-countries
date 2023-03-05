@@ -116,4 +116,3 @@ class App {
    }
 }
 const app = new App()
-//# sourceMappingURL=countryDetails.js.map

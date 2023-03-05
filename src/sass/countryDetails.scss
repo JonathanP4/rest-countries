@@ -1,0 +1,238 @@
+@use 'resets';
+@use 'misc' as *;
+@use 'mixins' as mix;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+
+body {
+   font-family: "Nunito Sans", sans-serif;
+   background: map-get($colors, 'white');
+   transition: all .3s;
+   max-width: 1440px;
+}
+
+.invisible {
+   opacity: 0 !important;
+}
+
+body.dark-mode {
+   color: map-get($colors, 'white');
+   background: map-get($colors, 'very-dark-blue-bg');
+}
+
+body.dark-mode {
+
+   .navbar,
+   .back-btn,
+   .borders .border {
+      background-color: hsl(209, 23%, 22%);
+   }
+}
+
+body.dark-mode .back-btn,
+body.dark-mode .borders .border {
+   color: hsl(0, 0%, 100%);
+}
+
+.app {
+   display: grid;
+   align-items: center;
+   justify-content: center;
+   padding: 2rem;
+}
+
+.flag-container {
+   margin: 2rem auto;
+   text-align: center;
+
+   img {
+      box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.3);
+      max-width: 620px;
+      width: 100%;
+   }
+}
+
+.navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: map-get($colors, 'white');
+   padding: 2rem 1rem;
+   box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+
+   h1 {
+      font-size: 1.3rem;
+   }
+
+   .theme-switcher-container {
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+   }
+}
+
+.theme-switcher-container {
+   .theme-icon {
+      left: -25px;
+      top: 3px;
+      position: absolute;
+   }
+}
+
+.back-btn {
+   cursor: pointer;
+   background-color: map-get($colors, 'white');
+   box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.3);
+   color: hsl(200, 15%, 8%);
+   display: flex;
+   gap: .5rem;
+   font-size: 1.1rem;
+   width: fit-content;
+   align-items: center;
+   padding: .5rem 1.4rem;
+}
+
+.country__details {
+   h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+   }
+}
+
+.country__details {
+   .section {
+      display: grid;
+      gap: .5rem;
+      margin-top: 2rem;
+   }
+}
+
+.border__countries {
+   margin-top: 2rem;
+   display: grid;
+   gap: 10px;
+}
+
+.border__countries {
+   h1 {
+      font-size: 1.3rem;
+   }
+}
+
+.border__countries {
+   .borders {
+      @include mix.flex($justify: flex-start)
+   }
+}
+
+.borders {
+   .border {
+      cursor: pointer;
+      margin-right: 1rem;
+      background-color: map-get($colors, 'white');
+      color: map-get($colors, 'very-dark-blue-text');
+      box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.3);
+      padding: .5rem 0;
+      border-radius: .3rem;
+      text-align: center;
+      font-size: .9rem;
+      width: 105px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+   }
+}
+
+@media (min-width: 1180px) {
+   body {
+      margin: 0 auto;
+   }
+
+   .app {
+      justify-content: unset;
+      margin: 2rem 3rem;
+      height: 70vh;
+   }
+
+   .country-data {
+      margin-top: 3rem;
+   }
+
+   .country__details {
+      @include mix.flex($justify: space-between);
+   }
+
+   .flag-container {
+      margin: 0;
+      align-self: stretch;
+      width: 40%;
+
+      img {
+         max-width: 100%;
+         height: 100%;
+         width: auto;
+      }
+   }
+
+   .sections {
+      width: 50%;
+      display: grid;
+      grid-template-areas:
+         "s1 s2"
+         "bc bc";
+
+      .section1 {
+         grid-area: s1;
+      }
+
+      .section2 {
+         align-self: center;
+         grid-area: s2;
+      }
+   }
+
+   .country__details {
+      .section {
+         display: grid;
+         gap: .5rem;
+         margin-top: 0;
+      }
+   }
+
+   .border__countries {
+      grid-area: bc;
+   }
+
+   .border__countries {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      h1 {
+         font-size: 1rem;
+         font-weight: 600;
+         margin-bottom: 0;
+      }
+   }
+
+   .borders {
+      .border {
+         padding: .2rem 0;
+         text-align: center;
+         font-size: 1rem;
+         width: 105px;
+      }
+   }
+}
+
+@media (min-width:1441px) {
+   body {
+      @include mix.grid();
+      height: 100vh;
+   }
+
+   main {
+      box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.7);
+   }
+}

@@ -10,7 +10,8 @@ const sun = document.querySelector('.fa-sun')
 const countriesContainer = document.querySelector('.countries')
 const search = document.querySelector('#search-country')
 
-import jsonData from '/data.json' assert {type: 'json' }
+const fetchData = await fetch('https://restcountries.com/v3.1/all')
+const jsonData = await fetchData.json()
 
 regionSelector.addEventListener('click', () => {
    regionList.classList.toggle('list--invisible')
@@ -21,13 +22,12 @@ const matched = window.matchMedia('(prefers-color-scheme: dark)').matches
 class App {
    constructor() {
       if (matched) this.switchTheme()
-      window.addEventListener('load', this.renderCountries(jsonData))
+      this.renderCountries(jsonData)
       search.addEventListener('keyup', () => this.sortBySearch())
-      search.addEventListener('keydown', () => this.countriesL())
+      search.addEventListener('keydown', this.countriesL)
       countriesContainer.addEventListener('click', (e) => this.setSessionStorage(e))
       themeSwitcher.addEventListener('click', this.switchTheme)
       regionList.addEventListener('click', (e) => {
-         e.target.parentNode.focus()
          if (e.target.classList.contains('region')) {
             this.sortByRegion(e)
             regionList.classList.add('list--invisible')
@@ -35,26 +35,26 @@ class App {
       })
    }
    renderCountries(countries) {
-      countries.forEach(el => {
+      countries.forEach(country => {
          const html =
-            `<div class="country" data-country="${el.name}">
+            `<div class="country" data-country="${country.name.common}">
                <a href="countryDetails.html">
                   <div class="flag-container">
-                     <img class="flag" src="${el.flags.png}" alt="flag_${el.name.split(' ').join('_')}">
+                     <img class="flag" src="${country.flags.png}" alt="flag_${country.name.common}">
                   </div>
                   <div class="country__details">
-                     <h1>${el.name}</h1>
+                     <h1>${country.name.common}</h1>
                      <div class="population">
                         <span class="text-bold">Population:</span>
-                        <span>${formatNum.format(el.population)}</span>
+                        <span>${formatNum.format(country.population)}</span>
                      </div>
                      <div class="region">
                         <span class="text-bold">Region:</span>
-                        <span>${el.region}</span>
+                        <span>${country.region}</span>
                      </div>
                      <div class="capital">
                         <span class="text-bold">Capital:</span>
-                        <span>${el.capital}</span>
+                        <span>${country.capital}</span>
                      </div>
                   </div>
                </a>
@@ -62,32 +62,27 @@ class App {
          countriesContainer.insertAdjacentHTML('beforeend', html)
       })
    }
+   //hm
    sortByRegion(e) {
       const region = e.target.textContent
       regionText.textContent = region
 
-      const countries = document.querySelectorAll('.country')
-      countries.forEach(el => el.remove())
+      countriesContainer.innerHTML = ''
 
       const filteredRegion = jsonData.filter(el => el.region === region)
       this.renderCountries(filteredRegion)
-      search.value = ''
-      this.countriesL
    }
    sortBySearch() {
       //Format search bar text
       const lowerCase = search.value.toLowerCase()
       const name = lowerCase.slice(0, 1).toUpperCase() + lowerCase.slice(1)
 
-      if (search.value === '') this.renderCountries(jsonData)
+      if (name === '') this.renderCountries
 
       regionText.textContent = 'Filter by Region'
+      countriesContainer.innerHTML = ''
 
-      const countries = document.querySelectorAll('.country')
-      countries.forEach(el => el.remove())
-      const filteredSearch = jsonData.filter(el => el.name.match(name))
-      console.log(filteredSearch);
-
+      const filteredSearch = jsonData.filter(el => el.name.common.match(name))
       this.renderCountries(filteredSearch)
    }
    countriesL() {
@@ -115,3 +110,4 @@ class App {
    }
 }
 const app = new App()
+//# sourceMappingURL=index.js.map

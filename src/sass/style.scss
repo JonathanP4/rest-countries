@@ -221,3 +221,14 @@ body.dark-mode {
       }
    }
 }
+
+@media (min-width:1441px) {
+   body {
+      @include mix.grid();
+   }
+
+   main {
+      max-width: 1440px;
+      box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.7);
+   }
+}
